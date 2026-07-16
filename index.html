@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trýabian — Русский переводчик</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; color: #eee; min-height: 100vh; }
+        .container { max-width: 700px; margin: 0 auto; padding: 30px 20px; }
+        h1 { text-align: center; color: #e94560; margin-bottom: 5px; font-size: 28px; }
+        .subtitle { text-align: center; color: #aaa; margin-bottom: 25px; font-size: 14px; }
+        .search-box { position: relative; margin-bottom: 20px; }
+        .search-box input {
+            width: 100%; padding: 16px 20px; font-size: 18px;
+            border: 2px solid #333; border-radius: 12px;
+            background: #16213e; color: #fff; outline: none;
+            transition: border 0.3s;
+        }
+        .search-box input:focus { border-color: #e94560; }
+        .tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+        .tab {
+            flex: 1; padding: 10px; text-align: center;
+            background: #16213e; border-radius: 8px; cursor: pointer;
+            font-size: 14px; transition: background 0.3s;
+        }
+        .tab.active { background: #e94560; }
+        .tab:hover { background: #0f3460; }
+        .tab.active:hover { background: #e94560; }
+        #result {
+            background: #16213e; border-radius: 12px; padding: 25px; min-height: 100px;
+            display: none;
+        }
+        .word-title { font-size: 24px; color: #e94560; margin-bottom: 10px; }
+        .word-pron { font-size: 16px; color: #aaa; margin-bottom: 8px; }
+        .word-pos { font-size: 14px; color: #888; margin-bottom: 12px; }
+        .word-def { font-size: 20px; color: #fff; }
+        .word-cyrillic { font-size: 16px; color: #ccc; margin-top: 8px; }
+        .suggestions { margin-top: 15px; }
+        .suggestion {
+            display: inline-block; padding: 6px 12px; margin: 3px;
+            background: #0f3460; border-radius: 20px; cursor: pointer;
+            font-size: 14px; transition: background 0.2s;
+        }
+        .suggestion:hover { background: #e94560; }
+        .alphabet {
+            display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 20px;
+            justify-content: center;
+        }
+        .letter {
+            padding: 6px 10px; background: #16213e; border-radius: 6px;
+            cursor: pointer; font-size: 14px; transition: background 0.2s;
+        }
+        .letter:hover { background: #e94560; }
+        #not-found { text-align: center; color: #888; font-size: 18px; padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Trýabian</h1>
+        <div class="subtitle">ты́о тры́аб бро ты́о чаббе сне</div>
+        
+        <div class="alphabet" id="alphabet"></div>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="switchMode('ru')">🇷🇺 Русский → Trýabian</div>
+            <div class="tab" onclick="switchMode('try')">🇹🇷 Trýabian → Русский</div>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Введите слово..." oninput="search()" autocomplete="off">
+        </div>
+        
+        <div id="result">
+            <div id="result-content"></div>
+        </div>
+    </div>
+
+    <script src="dictionary.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
