@@ -53,6 +53,28 @@
         }
         .letter:hover { background: #e94560; }
         #not-found { text-align: center; color: #888; font-size: 18px; padding: 20px; }
+        .flag-try {
+    display: inline-block;
+    width: 22px;
+    height: 15px;
+    background: #16213e;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-right: 6px;
+    position: relative;
+    border: 1px solid #e94560;
+}
+.flag-try::after {
+    content: "T";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #e94560;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Segoe UI', sans-serif;
+}
     </style>
 </head>
 <body>
@@ -64,7 +86,7 @@
         
         <div class="tabs">
             <div class="tab active" onclick="switchMode('ru')">🇷🇺 Русский → Trýabian</div>
-            <div class="tab" onclick="switchMode('try')">🇹🇷 Trýabian → Русский</div>
+            <div class="tab" onclick="switchMode('try')"><span class="flag-try"></span> Trýabian → Русский</div>
         </div>
         
         <div class="search-box">
